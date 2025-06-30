@@ -87,3 +87,13 @@ Generic lookup table for enumerated values used across the system (e.g., gender,
 | 5  | Description      | The master data descriptions. Example: Male, Female, Living with Parents, Single, Married, etc...                             |
 | 6  | Status           | Activation status                                                                                                             |
 
+## 6. Customer states history
+### Overview
+To logging the change of customer states.\
+The history will include the changes states, the date time the states was changed, and the officer that changed the states
+
+| No | Field        | Description                               |
+|----|--------------|-------------------------------------------|
+| 1  | State        | Should one of PENDING, ACTIVE, CLOSED     |
+| 2  | Changed date | Should be precise until time              |
+| 3  | Officer      | The officer who change the customer state |
