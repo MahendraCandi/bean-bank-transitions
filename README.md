@@ -28,6 +28,7 @@ Customers are typically individual locals (not foreigners or companies).
 | 17 | Photo              | The clear face photo                                                                                                                     |
 | 18 | Officer            | The officer that acquisitioned the customer                                                                                              |
 | 19 | Office             | The office information of customer                                                                                                       |
+| 20 | State              | To maintain customer states. Available states are PENDING, ACTIVE, CLOSED                                                                |
 
 
 ## 2. Office
