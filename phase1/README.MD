@@ -7,7 +7,7 @@ After determine the data in each modules requirement, let's build the rule for t
 <summary>Operations details</summary>
 
 ### 1. Submit customer acquisition
-When submitting the customer acquisitions, the data should be validated.
+When submitting a new customer acquisition, all required fields must undergo validation to ensure data integrity and alignment with business rules.
 
 | Field              | Validations                                                              |
 |--------------------|--------------------------------------------------------------------------|
@@ -29,29 +29,30 @@ When submitting the customer acquisitions, the data should be validated.
 | Officer            | Cannot be null or empty, Should aligned with available options on system |
 | Office             | Cannot be null or empty                                                  |
 
-Also, please check the business requirement when processing the data:
-* Officer should be in the same with the submitted office
-* Customer ages should be between 17 and 55
-* CIF number should be generated if process success
-* The customer state should be PENDING if process success
-* KTP should be unique compared to ACTIVE customer
-* The state should be log in customer state history
+**Business Rules**:
+* The officer assigned must belong to the same office as selected in the form.
+* The customer's age must be between 17 and 55 years old at the time of submission.
+* A unique CIF number must be generated upon successful processing.
+* The customer’s initial state must be set to PENDING.
+* The KTP number must be unique among customers with ACTIVE status.
+* Every state transition must be logged in the customer state history.
 
 ## 2. Inquiry customer information
-The system should capable to searching customer information.\
-The system should accept some parameter to filter the search results.
-* Filter by CIF number
-* Filter by office
-* Filter by customer name
-* Filter by KTP
-* Filter by state
+The system must support searching and filtering customer information.\
+The following filters should be supported:
+* CIF number
+* office
+* customer name
+* KTP
+* state
 
-The data output should be all customer information including the officer and office information.\
-But excluding the photo, there would be another operations to handle it.\
-**Also, available pagination is a must.**
+**Response Expectations**:
+* The response must return full customer information including associated officer and office details.
+* Photo is excluded from the response; a separate operation must handle photo retrieval.
+* Pagination support is required to manage large datasets.
 
 ## 3. Update customer information
-The system should capable to update customer information.\
+The system must allow updates to customer data.\
 Some fields may be prohibited to update.
 
 | Field              | Can updated? |
@@ -68,17 +69,18 @@ Some fields may be prohibited to update.
 | Email address      | Yes          |
 | Residential status | Yes          |
 
-The date output should be the same as data output in section Inquiry Customer Information.
+**Response Expectations**:
+* The response format must be consistent with the Customer Information Inquiry response format.
 
 ## 4. Change customer status
-The system should capable to change status customer.
-Here is the states flow:
+The system must allow changes to the customer’s status, following the valid status transition flow:
 
-* **PENDING** to **ACTIVE**
-* **PENDING** to **CLOSED**
-* **ACTIVE** to **CLOSED**
+**Allowed State Transitions**:
+* **`PENDING`** to **`ACTIVE`**
+* **`PENDING`** to **`CLOSED`**
+* **`ACTIVE`** to **`CLOSED`**
 
-Please check the business requirement to change status:
+**Business Rule**:
 * The changed states should follow the flow above
 * The customer KTP should be unique compared to ACTIVE customer
 * The state should be log in customer state history
