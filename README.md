@@ -27,6 +27,7 @@ Customers are typically individual locals (not foreigners or companies).
 | 16 | Residential status | Is it Owned, Rented, Living with Parents, Company Housing?                                                                               |
 | 17 | Photo              | The clear face photo                                                                                                                     |
 | 18 | Officer            | The officer that acquisitioned the customer                                                                                              |
+| 19 | Office             | The office information of customer                                                                                                       |
 
 
 ## 2. Office
